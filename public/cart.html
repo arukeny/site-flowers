@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart — Lovely Flowers</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="py-4 position-relative">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand header-logo" href="/">
+                <img src="/img/логотип.png" alt="Логотип" height="80"> </a>
+
+            <nav class="header-nav d-flex flex-column align-items-center">
+                <div class="nav-links-wrapper">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="shop.html">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="portfolio.html">Portfolio</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="header-icons ms-auto d-flex align-items-center">
+    <a href="profile.html" class="btn btn-link text-dark me-3"> <i class="bi bi-person" style="font-size: 2.5rem;"></i>
+    </a>
+    <a href="cart.html" class="btn btn-link text-dark position-relative">
+        <i class="bi bi-basket" style="font-size: 2.5rem;"></i>
+        <span class="cart-count">0</span> </a>
+</div>
+        </div>
+    </header>
+
+  <div class="container my-5">
+    <h1 class="mb-4 text-center">MY CART</h1>
+
+    <div id="cart-items" class="row g-4 mb-4">
+      </div>
+
+    <div class="text-end d-flex flex-column align-items-end">
+      <p id="cart-summary" class="fs-5 fw-bold mb-3">Total: <span id="cart-total-amount">0</span> ₽</p>
+      <div class="cart-actions d-flex justify-content-end w-100">
+          <button id="clear-cart" class="btn btn-outline-danger me-2">Clear Cart</button>
+          <button id="checkout-btn" class="btn btn-primary">Place Order</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-section py-4">
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <a href="https://instagram.com/lovelyflowers" target="_blank" class="social-icon-link mx-3">
+            <i class="bi bi-instagram"></i>
+            <span class="d-block mt-1">instagram</span>
+          </a>
+          <a href="https://t.me/lovelyflowers" target="_blank" class="social-icon-link mx-3">
+            <i class="bi bi-telegram"></i>
+            <span class="d-block mt-1">telegram</span>
+            </a>
+          <a href="https://wa.me/your_whatsapp_number" target="_blank" class="social-icon-link mx-3">
+            <i class="bi bi-whatsapp"></i>
+            <span class="d-block mt-1">whatsapp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="js/common.js"></script>
+
+  <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="checkoutModalLabel">Оформление заказа</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="checkoutForm">
+            <div class="mb-3">
+              <label class="form-label d-block">Способ получения:</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="deliveryMethod" id="deliveryPickup" value="самовывоз" checked>
+                <label class="form-check-label" for="deliveryPickup">Самовывоз (бесплатно)</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="deliveryMethod" id="deliveryCourier" value="курьер">
+                <label class="form-check-label" for="deliveryCourier">Курьерская доставка (300 ₽)</label>
+              </div>
+            </div>
+
+            <div id="pickupInfo" class="mb-3">
+              <p class="text-muted">Адрес магазина: г. Москва, Ленинский проспект, 117</p>
+            </div>
+
+            <div id="deliveryAddressGroup" class="mb-3" style="display: none;">
+              <label for="address" class="form-label">Адрес доставки</label>
+              <textarea class="form-control" id="address" rows="3"></textarea>
+            </div>
+
+            <hr>
+
+            <div class="mb-3">
+              <label for="name" class="form-label">Ваше имя</label>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Телефон</label>
+              <input type="tel" class="form-control" id="phone" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email">
+            </div>
+            <div class="mb-3">
+              <label for="comment" class="form-label">Комментарий к заказу (необязательно)</label>
+              <textarea class="form-control" id="comment" rows="2"></textarea>
+            </div>
+            
+            <hr>
+
+            <div class="order-summary-modal">
+                <p class="mb-1">Сумма товаров: <span id="modal-products-total">0</span> ₽</p>
+                <p class="mb-1">Стоимость доставки: <span id="modal-delivery-cost">0</span> ₽</p>
+                <p class="fs-5 fw-bold mt-2">Итого к оплате: <span id="modal-final-total">0</span> ₽</p>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+          <button type="submit" class="btn btn-primary" form="checkoutForm">Подтвердить заказ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const container = document.getElementById('cart-items');
+    const summary = document.getElementById('cart-summary');
+    const cartTotalAmountSpan = document.getElementById('cart-total-amount'); 
+    const clearBtn = document.getElementById('clear-cart');
+    const checkoutBtn = document.getElementById('checkout-btn'); 
+
+ 
+    const checkoutModalElement = document.getElementById('checkoutModal');
+    const deliveryPickupRadio = document.getElementById('deliveryPickup');
+    const deliveryCourierRadio = document.getElementById('deliveryCourier');
+    const deliveryAddressGroup = document.getElementById('deliveryAddressGroup');
+    const addressInput = document.getElementById('address');
+    const pickupInfo = document.getElementById('pickupInfo');
+
+    const modalProductsTotalSpan = document.getElementById('modal-products-total');
+    const modalDeliveryCostSpan = document.getElementById('modal-delivery-cost');
+    const modalFinalTotalSpan = document.getElementById('modal-final-total');
+
+    const DELIVERY_COST_COURIER = 300; 
+    const DELIVERY_COST_PICKUP = 0; 
+
+    let currentDeliveryCost = DELIVERY_COST_PICKUP; 
+
+  
+    function renderCart() {
+      container.innerHTML = '';
+      let totalProductsPrice = 0; 
+      
+
+      const cartCountSpan = document.querySelector('.header-icons .cart-count');
+      let totalItems = 0; 
+
+      if (cart.length === 0) {
+        container.innerHTML = '<p class="text-center">Cart empty</p>';
+        summary.textContent = ''; 
+        if(cartTotalAmountSpan) cartTotalAmountSpan.textContent = '0';
+        if(clearBtn) clearBtn.style.display = 'none';
+        if(checkoutBtn) checkoutBtn.style.display = 'none'; 
+        if(cartCountSpan) cartCountSpan.textContent = '0';
+        return;
+      }
+
+      cart.forEach((product, index) => {
+
+        product.quantity = product.quantity || 1; 
+        totalProductsPrice += Number(product.price) * product.quantity;
+        totalItems += product.quantity; 
+
+        const itemCol = document.createElement('div');
+
+        itemCol.className = 'col-lg-4 col-md-6 mb-4'; 
+        itemCol.innerHTML = `
+          <div class="product-card h-100">
+            <img src="${product.image_url}" class="card-img-top" alt="${product.name}">
+            <div class="card-body text-center">
+              <h5 class="product-name mt-3">${product.name}</h5>
+              <p class="product-price">${product.price} ₽</p>
+              <div class="quantity-controls d-flex justify-content-center align-items-center mb-3">
+                <button class="btn btn-sm quantity-btn minus" data-index="${index}">-</button>
+                <span class="quantity mx-2">${product.quantity}</span>
+                <button class="btn btn-sm quantity-btn plus" data-index="${index}">+</button>
+              </div>
+              <button class="btn btn-sm btn-outline-danger remove-item-btn" data-index="${index}">Delete</button>
+            </div>
+          </div>
+        `;
+        container.appendChild(itemCol);
+      });
+
+      if(cartTotalAmountSpan) cartTotalAmountSpan.textContent = totalProductsPrice.toFixed(2);
+      if(summary) summary.textContent = `Total: ${totalProductsPrice.toFixed(2)} ₽`; 
+      if(clearBtn) clearBtn.style.display = 'block';
+      if(checkoutBtn) checkoutBtn.style.display = 'block'; 
+      if(cartCountSpan) cartCountSpan.textContent = totalItems.toString();
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+ 
+    function updateModalTotals() {
+      const totalProductsPrice = cart.reduce((sum, item) => sum + (Number(item.price) * (item.quantity || 1)), 0);
+      modalProductsTotalSpan.textContent = totalProductsPrice.toFixed(2);
+      modalDeliveryCostSpan.textContent = currentDeliveryCost.toFixed(2);
+      modalFinalTotalSpan.textContent = (totalProductsPrice + currentDeliveryCost).toFixed(2);
+    }
+
+  
+    container.addEventListener('click', (event) => {
+      const target = event.target;
+      const index = target.dataset.index;
+
+      if (target.classList.contains('plus')) {
+        cart[index].quantity = (cart[index].quantity || 1) + 1;
+      } else if (target.classList.contains('minus')) {
+        if ((cart[index].quantity || 1) > 1) {
+          cart[index].quantity = (cart[index].quantity || 1) - 1;
+        } else {
+          cart.splice(index, 1);
+        }
+      } else if (target.classList.contains('remove-item-btn')) {
+        cart.splice(index, 1);
+      }
+      renderCart();
+      updateModalTotals(); 
+    });
+
+    clearBtn.addEventListener('click', () => {
+      localStorage.removeItem('cart');
+      cart = [];
+      renderCart(); 
+    });
+
+    checkoutBtn.addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert('Ваша корзина пуста. Добавьте товары, чтобы оформить заказ.');
+        return;
+      }
+
+      deliveryPickupRadio.checked = true; 
+      deliveryAddressGroup.style.display = 'none';
+      pickupInfo.style.display = 'block';
+      addressInput.removeAttribute('required');
+      currentDeliveryCost = DELIVERY_COST_PICKUP;
+
+      updateModalTotals(); 
+
+      const checkoutModal = new bootstrap.Modal(checkoutModalElement);
+      checkoutModal.show();
+    });
+
+    deliveryPickupRadio.addEventListener('change', () => {
+      deliveryAddressGroup.style.display = 'none';
+      pickupInfo.style.display = 'block';
+      addressInput.removeAttribute('required');
+      currentDeliveryCost = DELIVERY_COST_PICKUP;
+      updateModalTotals();
+    });
+
+    deliveryCourierRadio.addEventListener('change', () => {
+      deliveryAddressGroup.style.display = 'block';
+      pickupInfo.style.display = 'none';
+      addressInput.setAttribute('required', 'required'); 
+      currentDeliveryCost = DELIVERY_COST_COURIER;
+      updateModalTotals();
+    });
+
+    const checkoutForm = document.getElementById('checkoutForm');
+    checkoutForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+
+      const customerName = document.getElementById('name').value;
+      const customerPhone = document.getElementById('phone').value;
+      const customerEmail = document.getElementById('email').value;
+      const deliveryMethod = document.querySelector('input[name="deliveryMethod"]:checked').value;
+      const deliveryAddress = document.getElementById('address').value;
+      const comment = document.getElementById('comment').value;
+
+
+      const totalProductsPrice = parseFloat(modalProductsTotalSpan.textContent);
+      const finalTotalPrice = parseFloat(modalFinalTotalSpan.textContent); 
+
+      if (cart.length === 0) {
+        alert('Ваша корзина пуста. Добавьте товары, чтобы оформить заказ.');
+        return;
+      }
+
+      if (deliveryMethod === 'курьер' && !deliveryAddress) {
+        alert('Пожалуйста, укажите адрес доставки.');
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/place-order', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            customerName,
+            customerPhone,
+            customerEmail,
+            deliveryMethod,
+            deliveryAddress: deliveryMethod === 'курьер' ? deliveryAddress : null, 
+            comment,
+            totalPrice: finalTotalPrice, 
+            cartItems: cart 
+          })
+        });
+
+        if (response.ok) {
+          alert('Ваш заказ успешно оформлен! Мы свяжемся с вами в ближайшее время.');
+          localStorage.removeItem('cart'); 
+          cart = [];
+          renderCart(); 
+          
+
+          const checkoutModal = bootstrap.Modal.getInstance(checkoutModalElement);
+          checkoutModal.hide();
+        } else {
+          const errorData = await response.json();
+          alert(`Ошибка оформления заказа: ${errorData.message || response.statusText}`);
+          console.error('Server error:', errorData);
+        }
+      } catch (error) {
+        console.error('Ошибка сети или клиента при оформлении заказа:', error);
+        alert('Произошла ошибка при оформлении заказа. Пожалуйста, попробуйте еще раз.');
+      }
+    });
+
+
+    function addToCart(productData) {
+        let existingProductIndex = cart.findIndex(item => item.id === productData.id); 
+        if (existingProductIndex > -1) {
+            cart[existingProductIndex].quantity = (cart[existingProductIndex].quantity || 1) + 1; 
+        } else {
+            productData.quantity = 1; 
+            cart.push(productData);
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCart(); 
+    }
+
+   
+    renderCart();
+
+  </script>
+</body>
+</html>

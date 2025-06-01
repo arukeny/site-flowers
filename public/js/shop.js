@@ -1,5 +1,3 @@
-// public/js/shop.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const productsContainer = document.getElementById('products-container');
 
@@ -7,11 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch('/api/products');
             if (!response.ok) {
-                // Если сюда попадаем, значит есть проблема с HTTP-статусом ответа от сервера
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const products = await response.json();
-            // console.log('Данные товаров получены из API:', products); // Временный вывод для отладки
             displayProducts(products);
         } catch (error) {
             console.error('Ошибка при загрузке товаров:', error);
@@ -19,27 +15,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+
     function displayProducts(products) {
-        if (!products || products.length === 0) { // Добавил проверку !products
-            productsContainer.innerHTML = '<p class="text-muted">Товары пока отсутствуют в нашем магазине.</p>';
-            console.log('Нет товаров для отображения.'); // Для отладки
+        if (!products || products.length === 0) {
+            productsContainer.innerHTML = '<p class="text-muted">Товары пока отсутствуют в магазине.</p>';
             return;
         }
 
-        productsContainer.innerHTML = ''; // Очищаем контейнер
+        productsContainer.innerHTML = '';
 
         products.forEach(product => {
-            // Убедитесь, что product.name, product.price, product.image_url существуют
-            // console.log('Отображение товара:', product); // Для отладки каждого товара
-
             const productCardHtml = `
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="product-card">
-                        <img src="${product.image_url || '/img/placeholder.png'}" class="img-fluid rounded-3" alt="${product.name || 'Название товара'}">
+                        <img src="${product.image_url || '/img/placeholder.png'}" class="img-fluid rounded-3" alt="${product.name || 'Товар'}">
                         <div class="card-body text-center">
-                            <h5 class="product-name mt-3">${product.name || 'Название не указано'}</h5>
+                            <h5 class="product-name mt-3">${product.name || 'Без названия'}</h5>
                             <p class="product-price">${product.price !== undefined ? product.price : 'Цена не указана'} &#8381;</p>
-                            <button class="btn add-to-cart-btn" data-product-id="${product.id}">Add to Cart</button>
+                            <button class="btn btn-primary add-to-cart-btn" data-product-id="${product.id}">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -47,8 +40,18 @@ document.addEventListener('DOMContentLoaded', () => {
             productsContainer.insertAdjacentHTML('beforeend', productCardHtml);
         });
 
-        console.log('Товары успешно отображены. Кнопки "Add to Cart" пока не функциональны.');
+
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const productId = parseInt(e.target.getAttribute('data-product-id'));
+                const product = products.find(p => p.id === productId);
+                if (product) {
+                    addToCart(product);
+                }
+            });
+        });
     }
 
+    // Старт
     fetchProducts();
 });

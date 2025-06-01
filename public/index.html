@@ -29,7 +29,7 @@
                             <a class="nav-link text-uppercase" href="shop.html">Shop</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-uppercase" href="#">Contact</a>
+                            <a class="nav-link text-uppercase" href="contact.html">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-uppercase" href="#">Portfolio</a>
@@ -38,10 +38,13 @@
                 </div>
             </nav>
 
-            <div class="header-cart ms-auto">
-                <a href="#" class="btn btn-link text-dark">
-                    <i class="bi bi-basket" style="font-size: 2.5rem;"></i> </a>
-            </div>
+            <div class="header-icons ms-auto d-flex align-items-center">
+    <a href="profile.html" class="btn btn-link text-dark me-3"> <i class="bi bi-person" style="font-size: 2.5rem;"></i>
+    </a>
+    <a href="cart.html" class="btn btn-link text-dark position-relative">
+        <i class="bi bi-basket" style="font-size: 2.5rem;"></i>
+        <span class="cart-count">0</span> </a>
+</div>
         </div>
     </header>
 
@@ -59,8 +62,8 @@
                 <p class="lead mb-4">
                     Here you will find the most perfect bouquets!
                 </p>
-                <a href="#" class="btn-read-more">
-                    READ MORE <i class="bi bi-arrow-right read-more-arrow"></i> </a>
+               <a href="contact.html#about-us" class="btn-read-more">READ MORE <i class="bi bi-arrow-right read-more-arrow"></i>
+               </a>
                 
             </div>
         </div>
@@ -123,37 +126,14 @@
     </div>
 </section>
 
-    <section class="trend-bouquets-section container my-5 py-5">
-    <h2 class="section-title text-center mb-5">TREND BOUQUET</h2>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
-        <div class="col">
-            <div class="product-card"> <img src="/img/trend1.png" class="img-fluid rounded-3" alt="Трендовый букет 1">
-                <div class="card-body text-center">
-                    <h5 class="product-name mt-3">Spring tenderness</h5> <p class="product-price">9500 &#8381;</p> <button class="btn add-to-cart-btn">Add to Cart</button> </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="product-card">
-                <img src="/img/trend2.png" class="img-fluid rounded-3" alt="Трендовый букет 2">
-                <div class="card-body text-center">
-                    <h5 class="product-name mt-3">Morning dawn</h5>
-                    <p class="product-price">11200 &#8381;</p>
-                    <button class="btn add-to-cart-btn">Add to Cart</button>
+    <section class="trend-bouquet-section text-center my-5">
+        <div class="container">
+            <h2 class="section-title mb-4">TREND BOUQUET</h2>
+            <div class="row" id="trend-products-container">
                 </div>
-            </div>
+            <a href="shop.html" class="btn btn-primary mt-4">VIEW ALL BOUQUETS</a>
         </div>
-        <div class="col">
-            <div class="product-card">
-                <img src="/img/trend3.png" class="img-fluid rounded-3" alt="Трендовый букет 3">
-                <div class="card-body text-center">
-                    <h5 class="product-name mt-3">Vibrant mix</h5>
-                    <p class="product-price">10800 &#8381;</p>
-                    <button class="btn add-to-cart-btn">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <section class="why-choose-us-section container my-5 py-5">
     <h2 class="text-center section-title mb-5">WHY CHOOSE US?</h2>
@@ -206,8 +186,10 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eY1pQ+s8N" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
-<script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0c..." crossorigin="anonymous"></script>
+    <script src="js/common.js"></script> <script src="js/index-products.js"></script> </body>
+    <script src="js/script.js"></script> </body>
+
 </body>
 </html>
+
