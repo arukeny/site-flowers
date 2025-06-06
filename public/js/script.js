@@ -4,26 +4,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevButton = document.getElementById('prevBouquet');
     const nextButton = document.getElementById('nextBouquet');
 
-    // Проверяем, что все элементы найдены, прежде чем добавлять обработчики событий
     if (slider && prevButton && nextButton) {
-        const scrollAmount = 280; // Расстояние прокрутки (можешь настроить)
+        const scrollAmount = 280; 
 
         prevButton.addEventListener('click', () => {
             slider.scrollBy({
                 left: -scrollAmount,
-                behavior: 'smooth' // Плавная прокрутка
+                behavior: 'smooth' 
             });
         });
 
         nextButton.addEventListener('click', () => {
             slider.scrollBy({
                 left: scrollAmount,
-                behavior: 'smooth' // Плавная прокрутка
+                behavior: 'smooth' 
             });
         });
 
-        console.log('Slider elements and buttons found. Event listeners attached.'); // Для отладки
+        console.log('Slider elements and buttons found. Event listeners attached.'); 
     } else {
-        console.warn('One or more slider elements not found!', { slider, prevButton, nextButton }); // Для отладки
+        console.warn('One or more slider elements not found!', { slider, prevButton, nextButton }); 
     }
 });

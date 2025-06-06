@@ -1,4 +1,4 @@
-// public/js/common.js
+
 
 function updateCartCount() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -9,13 +9,13 @@ function updateCartCount() {
     }
 }
 
-// Функция добавления товара в корзину (теперь глобальная)
-function addToCart(productData) { // productData должен содержать id, name, price, image_url
+
+function addToCart(productData) { 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let existingProductIndex = cart.findIndex(item => item.id === productData.id);
 
     if (existingProductIndex > -1) {
-        // Если товар уже есть в корзине, увеличиваем его количество
+       
         cart[existingProductIndex].quantity = (cart[existingProductIndex].quantity || 1) + 1;
     } else {
         // Если товара нет, добавляем его с количеством 1
@@ -24,9 +24,8 @@ function addToCart(productData) { // productData должен содержать
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCount(); // Обновляем счетчик корзины после изменения
+    updateCartCount(); 
     alert(`«${productData.name}» добавлен в корзину!`);
 }
 
-// Вызываем функцию при загрузке страницы
 document.addEventListener('DOMContentLoaded', updateCartCount);

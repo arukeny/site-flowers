@@ -1,9 +1,9 @@
-// public/js/index-products.js
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const trendProductsContainer = document.getElementById('trend-products-container');
 
-    // Функция для загрузки и отображения трендовых букетов
+ 
     async function fetchTrendProducts() {
         try {
             const response = await fetch('/api/products');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Функция для отображения карточек товаров (аналогично shop.js)
+    
     function displayTrendProducts(products) {
         if (!products || products.length === 0) {
             trendProductsContainer.innerHTML = '<p class="text-muted">Трендовые букеты пока отсутствуют.</p>';
@@ -45,21 +45,19 @@ document.addEventListener('DOMContentLoaded', () => {
             trendProductsContainer.insertAdjacentHTML('beforeend', productCardHtml);
         });
 
-        // Добавляем обработчики событий для кнопок "Add to Cart"
-        // Важно: селектор .trend-bouquet-section .add-to-cart-btn предотвращает дублирование обработчиков,
+        
         document.querySelectorAll('.trend-bouquet-section .add-to-cart-btn').forEach(button => {
             button.addEventListener('click', (e) => {
                 const productId = parseInt(e.target.getAttribute('data-product-id'));
-                // Получаем полный объект продукта из уже загруженных трендовых товаров
+                
                 const product = products.find(p => p.id === productId);
                 if (product) {
-                    // addToCart теперь глобальна, вызываем её напрямую из common.js
                     addToCart(product);
                 }
             });
         });
     }
 
-    // Запускаем загрузку трендовых букетов при загрузке страницы
+    
     fetchTrendProducts();
 });

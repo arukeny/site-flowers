@@ -68,15 +68,15 @@ header {
 }
 
 .header-nav .nav-item {
-    margin: 0 1.5rem; /* Отступы между пунктами меню, регулируй! */
+    margin: 0 1.5rem; 
 }
 .header-nav .nav-link {
-    /* Меняем шрифт для ссылок навигации */
+   
     font-family: 'IM Fell Great Primer SC', serif;
-    font-weight: 400; /* Обычно у этого шрифта есть только Regular (400), если не указано иное */
+    font-weight: 400; 
     color: #333 !important;
     padding: 0.5rem 0 !important;
-    letter-spacing: 0.05em; /* Можешь скорректировать, если нужно */
+    letter-spacing: 0.05em; 
     transition: color 0.3s ease;
 }
 
@@ -91,7 +91,7 @@ header {
     color: #333;
 }
 
-/* --- Стили для Hero Section --- */
+
 
 .hero-section {
     padding-top: 3rem;
@@ -102,9 +102,8 @@ header {
     max-width: 100%;
     height: auto;
     display: block;
-    /* Установи точное значение радиуса из Figma */
-    border-radius: 25px; /* <--- Измени это значение! Например: 10px, 25px, 30px и т.д. */
-    overflow: hidden; /* Важно: обрезает содержимое, которое выходит за границы скругления */
+    border-radius: 25px; 
+    overflow: hidden; 
 }
 
 .btn-read-more {
@@ -130,8 +129,8 @@ header {
 .btn-read-more .read-more-arrow {
     font-size: 1rem;
     margin-left: 8px;
-    color: #333; /* Начальный цвет стрелки */
-    transition: color 0.3s ease; /* Плавный переход цвета для стрелки */
+    color: #333; 
+    transition: color 0.3s ease; 
 }
 
 .hero-text-content {
@@ -139,10 +138,10 @@ header {
     padding-left: 2rem;
 }
 
-/* ===== ОБНОВЛЕННЫЕ СТИЛИ ДЛЯ ШРИФТОВЫХ ВЕСОВ ===== */
-.small-text { /* Lovely Flowers Shop */
+
+.small-text { 
     font-family: 'Inconsolata', monospace;
-    font-weight: 300; /* Light */
+    font-weight: 300; 
     font-size: 0.9em;
     color: #777;
     display: flex;
@@ -164,23 +163,23 @@ header {
     margin: 0 0.5rem;
 }
 
-h1.display-2 { /* Заголовок FLOWERS */
+h1.display-2 { 
     font-family: 'IM Fell Great Primer SC', serif;
-    font-size: 4rem; /* Или больше, как в Figma. Поиграй с этим значением. */
-    font-weight: bold; /* Или 700, если этот вес есть у шрифта и ты его подключил */
+    font-size: 4rem; 
+    font-weight: bold; 
     color: #333;
 }
 
-.lead { /* Here you will find the most perfect bouquets! */
+.lead { 
     font-family: 'Inconsolata', monospace;
-    font-weight: 200; /* Extra Light */
+    font-weight: 200; 
     color: #555;
     font-size: 1.1rem;
 }
 
-.btn-read-more { /* READ MORE */
+.btn-read-more { 
     font-family: 'Inconsolata', monospace;
-    font-weight: 300; /* Light */
+    font-weight: 300; 
     display: inline-flex;
     align-items: center;
     color: #333;
@@ -201,84 +200,79 @@ h1.display-2 { /* Заголовок FLOWERS */
 .trend-bouquets-section {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    /* Фон секции, если он отличается от градиента body, но по макету он такой же */
-    /* background-color: #f8f9fa; */
 }
 
 .section-title {
     font-family: 'IM Fell Great Primer SC', serif;
-    font-size: 2.5rem; /* Подбери размер по Figma */
+    font-size: 2.5rem; 
     color: #333;
     margin-bottom: 1rem;
-    text-transform: uppercase; /* Если заголовки в верхнем регистре */
+    text-transform: uppercase; 
 }
 
 .section-description {
     font-family: 'Inconsolata', monospace;
-    font-weight: 300; /* Light, как и другие тексты Inconsolata */
+    font-weight: 300; 
     font-size: 1rem;
     line-height: 1.6;
     color: #555;
 }
 
 .text-block {
-    /* Дополнительные стили для блоков "OUR BOUQUET" и "OUR PRICES" */
-    /* Возможно, нужно добавить отступы или ширину, если они не такие широкие */
+    /* Дополнительные стили для блоков OUR BOUQUET и OUR PRICES */
 }
 
 .bouquet-slider-wrapper {
-    overflow-x: auto; /* Это делает содержимое прокручиваемым по горизонтали */
-    -webkit-overflow-scrolling: touch; /* Улучшает скролл на iOS */
-    padding-bottom: 1rem; /* Добавляет немного места для скроллбара, если он есть */
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch; 
+    padding-bottom: 1rem; 
 }
-/* Опционально: Скрываем стандартный скроллбар для более чистого дизайна */
+
 .bouquet-slider-wrapper::-webkit-scrollbar {
-    display: none; /* Для WebKit-браузеров (Chrome, Safari, Edge) */
+    display: none; 
 }
 .bouquet-slider-wrapper {
-    -ms-overflow-style: none;  /* Для Internet Explorer */
-    scrollbar-width: none;  /* Для Firefox */
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
 }
 
 .bouquet-slider-inner {
-    display: flex; /* Важно: делает элементы flex-элементами для горизонтального расположения */
-    flex-wrap: nowrap; /* Важно: запрещает элементам переноситься на новую строку */
-    gap: 1.5rem; /* Отступ между карточками. Попробуй 1rem, 2rem и т.д., чтобы получить нужный отступ */
-    padding-left: 0.5rem; /* Небольшой отступ от левого края, если карточки слишком прилипают */
-    padding-right: 0.5rem; /* Небольшой отступ от правого края */
+    display: flex; 
+    flex-wrap: nowrap; 
+    gap: 1.5rem; 
+    padding-left: 0.5rem; 
+    padding-right: 0.5rem; 
 }
 
 .col-shrink {
-    flex-shrink: 0; /* Запрещает карточкам сжиматься */
-    width: 250px; /* <--- САМОЕ ВАЖНОЕ: Это фиксированная ширина каждой карточки. Отрегулируй по Figma! */
-    /* Например: 200px, 280px, 300px и т.д. */
+    flex-shrink: 0; 
+    width: 250px; 
 }
 .bouquet-card {
-    background-color: #fff; /* Белый фон карточки */
-    border-radius: 10px; /* Закругление углов самой карточки (не изображения) */
-    overflow: hidden; /* Обрезает содержимое по радиусу */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Легкая тень */
+    background-color: #fff; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px; /* Внутренний отступ внутри карточки */
-    border: 1px solid #eee; /* Легкая граница */
-    height: 100%; /* Карточка занимает всю высоту */
+    padding: 10px; 
+    border: 1px solid #eee; 
+    height: 100%; 
 }
 
 .bouquet-card img {
-    border-radius: 10px; /* Закругление углов изображения (должно совпадать с карточкой или быть меньше) */
-    width: 100%; /* Изображение занимает всю ширину карточки */
-    height: auto; /* Сохраняет пропорции */
+    border-radius: 10px; 
+    width: 100%; 
+    height: auto; 
     display: block;
 }
 
-/* Стили для заголовка "TREND BOUQUET" */
 .trend-bouquets-section .section-title {
-    margin-top: 3rem; /* Дополнительный отступ сверху, если нужно */
+    margin-top: 3rem; 
 }
 
-/* Убедимся, что основной контент растягивается */
+
 main {
     flex-grow: 1;
 }
@@ -287,117 +281,102 @@ main {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: transparent; /* Убираем фон */
-    border: none; /* Убираем границу */
-    /* width: auto; /* Убираем фиксированную ширину/высоту */
-    /* height: auto; */
+    background: transparent; 
+    border: none; 
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     z-index: 10;
-    font-size: 2rem; /* Сделаем их побольше, раз нет фона */
-    color: #333; /* Цвет иконки */
-    transition: color 0.3s ease; /* Только изменение цвета */
+    font-size: 2rem; 
+    color: #333; 
+    transition: color 0.3s ease; 
 }
 
 .slider-arrow:hover {
-    color: #E2B9CB; /* Цвет при наведении */
-    background: transparent; /* Убедимся, что фон не появляется */
+    color: #E2B9CB; 
+    background: transparent; 
 }
 
 .slider-prev {
-    left: -25px; /* Отступ от левого края (может выходить за пределы col-lg-8) */
+    left: -25px; 
 }
 
 .slider-next {
-    right: -30px; /* Отступ от правого края (может выходить за пределы col-lg-8) */
+    right: -30px; 
 }
 
-/* public/css/style.css */
 
-/* ... (существующие стили) ... */
-
-/* --- Стили для секции WHY CHOOSE US? --- */
 .why-choose-us-section .section-title {
-    font-family: 'IM Fell Great Primer SC', serif; /* Заголовок как у других секций */
+    font-family: 'IM Fell Great Primer SC', serif; 
     font-size: 2.5rem;
     color: #333;
-    margin-bottom: 2rem; /* Отступ под заголовком */
+    margin-bottom: 2rem; 
     text-transform: uppercase;
 }
 
 .reason-block {
-    background-color: #F8CAD9; /* Фон блока с причиной (светло-розовый) */
+    background-color: #F8CAD9; 
     color: #333;
     font-family: 'Inconsolata', monospace;
-    font-weight: 400; /* Regular */
+    font-weight: 400; 
     font-size: 1.1rem;
     padding: 0.8rem 1.5rem;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Легкая тень */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .reason-block i {
-    color: #333; /* Цвет иконки */
-    margin-right: 0.75rem; /* Отступ между иконкой и текстом */
+    color: #333; 
+    margin-right: 0.75rem; 
 }
 
 .reason-block:hover {
-    transform: translateY(-3px); /* Небольшой подъем при наведении */
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Усиление тени */
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1); 
 }
 
 .why-choose-us-section img {
     border-radius: 10px; /* Скругление углов у изображений */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Тень для изображений */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
 }
 
-/* public/css/style.css */
 
-/* ... (все ваши предыдущие стили) ... */
-
-/* --- Обновленные стили для подвала (Footer) --- */
 .footer-section {
-    background-color: #fce8f0; /* Более светлый фон, похожий на основной фон страницы */
-    padding-top: 3rem; /* Отступ сверху */
-    padding-bottom: 3rem; /* Отступ снизу */
-    margin-top: 5rem; /* Добавь отступ сверху, чтобы отделить от предыдущей секции */
+    background-color: #fce8f0; 
+    padding-top: 3rem; 
+    padding-bottom: 3rem; 
+    margin-top: 5rem; 
 }
 
 .social-icon-link {
-    color: #E2B9CB; /* Основной цвет иконки и текста (светло-розовый) */
-    text-decoration: none; /* Убираем подчеркивание у ссылок */
-    font-family: 'Inconsolata', monospace; /* Шрифт для текста */
-    font-size: 1.2rem; /* Размер текста */
-    display: inline-block; /* Для правильного применения mx-3 */
-    transition: color 0.3s ease; /* Плавный переход только для цвета */
-    margin: 0 25px; /* Отступы между иконками (25px - пример, возможно, потребуется точная настройка) */
+    color: #E2B9CB; 
+    text-decoration: none; 
+    font-family: 'Inconsolata', monospace; 
+    font-size: 1.2rem; 
+    display: inline-block; 
+    transition: color 0.3s ease; 
+    margin: 0 25px; 
 }
 
 .social-icon-link i {
-    font-size: 3.5rem; /* Увеличенный размер иконок для соответствия макету */
-    display: block; /* Чтобы иконка и текст были на разных строках */
-    margin-bottom: 0.5rem; /* Отступ между иконкой и текстом */
-    /* Цвет уже задан в .social-icon-link */
+    font-size: 3.5rem; 
+    display: block; 
+    margin-bottom: 0.5rem; 
+    
 }
 
 .social-icon-link:hover {
-    color: #ce89a8; /* Чуть более темный оттенок розового при наведении */
-    /* Убрали transform: translateY, так как на макете нет такого эффекта */
+    color: #ce89a8; 
+    
 }
 
-/* Если нужно, можно добавить отдельные цвета для иконок при hover, хотя наследование обычно достаточно */
+
 .social-icon-link:hover i {
-    color: #ce89a8; /* Цвет иконки при наведении */
+    color: #ce89a8; 
 }
 
-/* public/css/style.css */
-
-/* ... (все ваши предыдущие стили) ... */
-
-/* --- Стили для страницы каталога (Shop Page) --- */
 
 .shop-catalog-section .section-title {
     font-family: 'IM Fell Great Primer SC', serif;
@@ -408,39 +387,39 @@ main {
 }
 
 .product-card {
-    background-color: #fff; /* Белый фон карточки */
-    border-radius: 10px; /* Скругленные углы */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Легкая тень */
+    background-color: #fff; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
     padding: 15px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    height: 100%; /* Убедимся, что карточки имеют одинаковую высоту */
+    height: 100%; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Чтобы кнопка была внизу */
+    justify-content: space-between; 
 }
 
 .product-card:hover {
-    transform: translateY(-5px); /* Легкий подъем при наведении */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Усиленная тень */
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
 }
 
 .product-card img {
     width: 100%;
-    height: 250px; /* Фиксированная высота для изображений */
-    object-fit: cover; /* Обрезка изображения для заполнения */
-    border-radius: 8px; /* Чуть меньше скругление, чем у карточки */
+    height: 250px; 
+    object-fit: cover; 
+    border-radius: 8px; 
     margin-bottom: 15px;
 }
 
 .product-name {
-    font-family: 'IM Fell Great Primer SC', serif; /* Шрифт как у заголовков */
+    font-family: 'IM Fell Great Primer SC', serif; 
     font-size: 1.3rem;
     color: #333;
     margin-bottom: 5px;
 }
 
 .product-price {
-    font-family: 'Inconsolata', monospace; /* Шрифт как у текста */
+    font-family: 'Inconsolata', monospace; 
     font-size: 1.1rem;
     color: #555;
     font-weight: 600;
@@ -448,98 +427,95 @@ main {
 }
 
 .add-to-cart-btn {
-    background-color: #E2B9CB; /* Розовый цвет кнопки */
-    color: white; /* Белый текст */
+    background-color: #E2B9CB; 
+    color: white; 
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     font-family: 'Inconsolata', monospace;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.1s ease;
-    width: 80%; /* Кнопка занимает 80% ширины карточки */
-    max-width: 200px; /* Максимальная ширина кнопки */
+    width: 80%; 
+    max-width: 200px; 
 }
 
 .add-to-cart-btn:hover {
-    background-color: #ce89a8; /* Чуть темнее при наведении */
-    transform: translateY(-2px); /* Небольшой подъем */
+    background-color: #ce89a8; 
+    transform: translateY(-2px); 
 }
 
-/* --- Стили для пагинации (нумерации страниц) --- */
+
 .custom-pagination .page-item .page-link {
-    background-color: #fce8f0; /* Светло-розовый фон для страниц */
-    border: 1px solid #E2B9CB; /* Розовая рамка */
-    color: #E2B9CB; /* Розовый текст */
+    background-color: #fce8f0; 
+    border: 1px solid #E2B9CB; 
+    color: #E2B9CB; 
     font-family: 'Inconsolata', monospace;
     font-weight: 600;
     margin: 0 3px;
-    border-radius: 5px; /* Скругленные углы страниц */
-    min-width: 40px; /* Минимальная ширина, чтобы числа были хорошо видны */
+    border-radius: 5px; 
+    min-width: 40px; 
     text-align: center;
 }
 
 .custom-pagination .page-item.active .page-link {
-    background-color: #E2B9CB; /* Активная страница - насыщенный розовый фон */
-    color: white; /* Белый текст */
+    background-color: #E2B9CB; 
+    color: white; 
     border-color: #E2B9CB;
 }
 
 .custom-pagination .page-item .page-link:hover {
-    background-color: #ce89a8; /* Более темный розовый при наведении */
+    background-color: #ce89a8; 
     color: white;
     border-color: #ce89a8;
 }
 
 .custom-pagination .page-item.disabled .page-link {
-    background-color: #f0f0f0; /* Серый фон для отключенных кнопок */
-    color: #bbb; /* Светло-серый текст */
+    background-color: #f0f0f0; 
+    color: #bbb; 
     border-color: #ddd;
     cursor: not-allowed;
 }
 
 .header-icons .cart-count {
-    position: absolute; /* Абсолютное позиционирование относительно родителя */
-    top: 0px; /* Расположение сверху */
-    right: -8px; /* Небольшой сдвиг вправо, чтобы выглядело как наложение */
-    background-color: #E2B9CB; /* Розовый цвет фона круга */
-    color: white; /* Белый цвет текста */
-    font-size: 0.75rem; /* Размер шрифта, можно настроить */
-    font-weight: bold; /* Жирный шрифт */
-    border-radius: 50%; /* Делает элемент круглым */
-    padding: 2px 6px; /* Внутренние отступы, чтобы число было по центру */
-    line-height: 1; /* Выравнивает текст по вертикали */
-    min-width: 20px; /* Минимальная ширина, чтобы круг был заметен даже для "0" */
-    height: 20px; /* Высота, чтобы круг был симметричным */
-    display: flex; /* Используем flexbox для центрирования содержимого */
-    justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Небольшая тень для объема */
+    position: absolute; 
+    top: 0px; 
+    right: -8px; 
+    background-color: #E2B9CB; 
+    color: white; 
+    font-size: 0.75rem; 
+    font-weight: bold; 
+    border-radius: 50%; 
+    padding: 2px 6px; 
+    line-height: 1; 
+    min-width: 20px; 
+    height: 20px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2); 
 }
 
-/* --- Стили для карточек товаров в Корзине --- */
 
-/* Контролы количества */
 .quantity-controls {
     margin-top: 10px;
     margin-bottom: 10px;
-    /* Убедимся, что они центрированы */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .quantity-btn {
-    background-color: #E2B9CB; /* Розовый цвет для кнопок +/- */
+    background-color: #E2B9CB; 
     color: white;
     border: none;
     border-radius: 5px;
-    width: 30px; /* Фиксированная ширина */
-    height: 30px; /* Фиксированная высота */
+    width: 30px; 
+    height: 30px; 
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    display: flex; /* Для центрирования текста +/- */
+    display: flex; 
     justify-content: center;
     align-items: center;
 }
@@ -549,15 +525,14 @@ main {
 }
 
 .quantity {
-    font-family: 'Inconsolata', monospace; /* Шрифт для числа */
+    font-family: 'Inconsolata', monospace; 
     font-size: 1.1rem;
     font-weight: 600;
-    margin: 0 10px; /* Отступы между кнопками и числом */
-    min-width: 25px; /* Чтобы число не "прыгало" при изменении */
+    margin: 0 10px; 
+    min-width: 25px; 
     text-align: center;
 }
 
-/* Кнопка "Удалить" */
 .remove-item-btn {
     font-family: 'Inconsolata', monospace;
     font-size: 0.9rem;
@@ -575,39 +550,38 @@ main {
     color: white;
 }
 
-/* Переопределение стилей для карточек в корзине, если нужно, чтобы они отличались */
-/* Например, если хочешь, чтобы изображение в корзине было другой высоты, чем в каталоге: */
-.card-img-top { /* Этот стиль может быть общим для всех product-card img */
+
+.card-img-top { 
     width: 100%;
-    height: 250px; /* Фиксированная высота для изображений */
-    object-fit: cover; /* Обрезка изображения для заполнения */
-    border-radius: 8px; /* Чуть меньше скругление, чем у карточки */
+    height: 250px; 
+    object-fit: cover; 
+    border-radius: 8px; 
     margin-bottom: 15px;
 }
 
 .btn-primary {
-    background-color: #E2B9CB; /* Ваш розовый цвет */
+    background-color: #E2B9CB; 
     border-color: #E2B9CB;
     color: white;
-    font-family: 'Inconsolata', monospace; /* Используем ваш шрифт */
+    font-family: 'Inconsolata', monospace; 
     text-transform: uppercase;
     font-weight: bold;
-    padding: 10px 25px; /* Увеличим отступы для лучшего вида */
-    border-radius: 5px; /* Немного скруглим углы */
+    padding: 10px 25px; 
+    border-radius: 5px; 
     transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #d1a8be; /* Чуть темнее розовый при наведении */
+    background-color: #d1a8be; 
     border-color: #d1a8be;
     color: white;
 }
 
-/* Стили для кнопки "Очистить корзину" (outline-danger) */
+
 .btn-outline-danger {
-    color: #E2B9CB; /* Розовый текст */
-    border-color: #E2B9CB; /* Розовая рамка */
-    font-family: 'Inconsolata', monospace; /* Ваш шрифт */
+    color: #E2B9CB; 
+    border-color: #E2B9CB; 
+    font-family: 'Inconsolata', monospace; 
     text-transform: uppercase;
     font-weight: bold;
     padding: 10px 25px;
@@ -616,35 +590,35 @@ main {
 }
 
 .btn-outline-danger:hover {
-    background-color: #E2B9CB; /* Розовый фон при наведении */
-    color: white; /* Белый текст при наведении */
+    background-color: #E2B9CB; 
+    color: white; 
     border-color: #E2B9CB;
 }
 
 
 .lead {
     font-size: 1.1rem;
-    max-width: 700px; /* Ограничим ширину текста для читабельности */
+    max-width: 700px; 
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 3rem !important; /* Увеличим отступ снизу */
+    margin-bottom: 3rem !important; 
     font-weight: normal;
 }
 
 
 
-/* Блок контактной информации */
+
 .contact-info {
-    background-color: #f8f9fa; /* Светлый фон */
+    background-color: #f8f9fa; 
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Легкая тень */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
 }
 
 .contact-info h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    text-align: center; /* Центрирование заголовка "Наши контакты" */
+    text-align: center; 
 }
 
 .contact-info p {
@@ -654,14 +628,14 @@ main {
     align-items: flex-start;
 }
 .contact-info p i {
-    color: #ce89a8; /* Цвет иконок */
+    color: #ce89a8; 
     font-size: 1.2rem;
     margin-right: 10px;
     flex-shrink: 0;
     padding-top: 2px;
 }
 
-/* Контейнер для карты */
+
 .map-container {
     border-radius: 8px;
     overflow: hidden;
@@ -671,7 +645,7 @@ main {
     border-radius: 8px;
 }
 
-/* Раздел "О нас" */
+
 .about-us-section {
     padding: 3rem 0;
 }
@@ -688,49 +662,49 @@ main {
 }
 
 
-/* Общие отступы между секциями */
+
 section {
     margin-bottom: 5rem;
 }
-/* Отступы для row justify-content-center */
+
 .row.justify-content-center {
     margin-bottom: 3rem !important;
 }
 
 
-/* Стили для секции портфолио */
+
 .portfolio-section {
     padding: 3rem 0;
 }
 
 .portfolio-section .section-title {
-    font-size: 3rem; /* Или любой размер, который вам нравится */
+    font-size: 3rem; 
     margin-bottom: 3rem;
     color: #333;
 }
 
-/* Стили для каждого элемента портфолио (изображения) */
+
 .portfolio-item {
     position: relative;
-    overflow: hidden; /* Обрезает содержимое, которое выходит за границы */
-    border-radius: 8px; /* Немного закругленные углы */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Легкая тень */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавные переходы */
+    overflow: hidden; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .portfolio-item:hover {
-    transform: translateY(-5px); /* Приподнимает карточку при наведении */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Усиленная тень */
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); 
 }
 
 .portfolio-item img {
     width: 100%;
-    height: 300px; /* Фиксированная высота для единообразия */
-    object-fit: cover; /* Обрезает изображение, чтобы оно вписывалось, сохраняя пропорции */
+    height: 300px;
+    object-fit: cover; 
     display: block;
-    transition: transform 0.5s ease; /* Плавное увеличение при наведении */
+    transition: transform 0.5s ease; 
 }
 
 .portfolio-item:hover img {
-    transform: scale(1.05); /* Увеличивает изображение при наведении */
+    transform: scale(1.05); 
 }
